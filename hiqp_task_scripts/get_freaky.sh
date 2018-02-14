@@ -27,12 +27,19 @@ rosservice call /yumi/hiqp_joint_velocity_controller/set_primitives \
   color: [1.0, 0.0, 0.0, 1.0]
   parameters: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
+- name: ee_left_frame
+  type: frame
+  frame_id: gripper_l_base
+  visible: true
+  color: [0.0, 0.5, 0.0, 1.0]
+  parameters: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
 - name: 'init_frame'
   type: 'frame'
   frame_id: 'yumi_body'
   visible: true
   color: [1.0, 0.0, 1.0, 1.0]
-  parameters: [0.22, -0.08 , 0.1 , 0.0, 1.57, 1.57]
+  parameters: [0.42, -0.1 , 0.1 , 0.0, 1.57, 1.57]
 
 - name: 'ee_point'
   type: 'point'
@@ -46,14 +53,21 @@ rosservice call /yumi/hiqp_joint_velocity_controller/set_primitives \
   frame_id: 'yumi_body'
   visible: false
   color: [3.0, 1.0, 1.0, 1.0]
-  parameters: [0.22, -0.08 , 1.0]
+  parameters: [0.42, -0.1 , 1.0]
 
 - name: 'final_frame'
   type: 'frame'
   frame_id: 'yumi_body'
   visible: false
   color: [3.0, 1.0, 1.0, 1.0]
-  parameters: [0.22, -0.08 , -1.0,  0.0, 1.57, 1.57]
+  parameters: [0.42, -0.08 , 0.00,  0.0, 1.57, 1.57]
+
+- name: 'target_frame2'
+  type: 'frame'
+  frame_id: 'yumi_body'
+  visible: false
+  color: [3.0, 1.0, 1.0, 1.0]
+  parameters: [0.35, 0.35 , 0.25,  0.0, 0.0 , 0.0]
 
   "
 
@@ -87,12 +101,14 @@ rosservice call /yumi/hiqp_joint_velocity_controller/set_primitives \
      def_params: ['TDefFullPose']
      dyn_params: ['TDynPD', '1.0', '1.0']
 
+
+
+
    "
 
+   echo $'Pose initialized. Sleeping for 10.'
 
-   echo $'Pose initialized'
-
-    sleep 15
+    sleep 10
     echo $'Moving downawards'
     # ==================== Phase 2  ========================
     rosservice call /yumi/hiqp_joint_velocity_controller/remove_tasks "names:

@@ -29,8 +29,8 @@ rosservice call /yumi/hiqp_joint_velocity_controller/set_tasks \
   sleep 10
 
 
-  rosservice call /yumi/hiqp_joint_velocity_controller/remove_tasks "names:
-  - 'full_pose'"
+  # rosservice call /yumi/hiqp_joint_velocity_controller/remove_tasks "names:
+  # - 'full_pose'"
 # removing all primitives isnt very dangerous because they have dependancies and wont be obliterated
   rosservice call /yumi/hiqp_joint_velocity_controller/remove_all_primitives \
   # rosservice call /yumi/hiqp_joint_velocity_controller/list_all_primitives \

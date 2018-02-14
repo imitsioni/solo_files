@@ -69,7 +69,6 @@ rosservice call /yumi/hiqp_joint_velocity_controller/set_primitives \
 
   "
 
-# Assuming the object is at the z = 1 plane.
 
    rosservice call /yumi/hiqp_joint_velocity_controller/set_tasks \
    "tasks:
@@ -131,13 +130,13 @@ rosservice call /yumi/hiqp_joint_velocity_controller/set_primitives \
       active: 1
       monitored: 1
       def_params: ['TDefTracking', 'frame', 'frame', 'ee_frame = final_frame', '0.05', '0.5']
-      dyn_params: ['TDynPD', '20.0', '20.0', '20.0', '5.0', '5.0', '3.0', '12.0', '12.0', '12.0', '4.0', '4.0', '4.0']
+      dyn_params: ['TDynPD', '30.0', '30.0', '30.0', '3.0', '3.0', '3.0', '12.0', '12.0', '12.0', '4.0', '4.0', '4.0']
+
 
       "
 
 
-      # dyn_params: ['TDynPD', '30.0', '30.0', '30.0', '3.0', '3.0', '3.0', '12.0', '12.0', '12.0', '4.0', '4.0', '4.0']
-
+# dyn_params: ['TDynPD', '20.0', '20.0', '20.0', '5.0', '5.0', '3.0', '12.0', '12.0', '12.0', '4.0', '4.0', '4.0']
 
      # ==================== Primitives' graveyard ========================
      # - name: 'ee2_point'
