@@ -82,23 +82,26 @@ rosservice call /yumi/hiqp_joint_velocity_controller/set_primitives \
      dyn_params: ['TDynPD', '1.0', '1.0']
 
 
+   - name: 'task2'
+     priority: 2
+     visible: 1
+     active: 1
+     monitored: 1
+     def_params: ['TDefTracking', 'point', 'point', 'ee_point = target_point', '0.04']
+     dyn_params: ['TDynPD', '4.0', '1']
+
+
    "
 
-   # - name: 'task2'
-   #   priority: 2
-   #   visible: 1
-   #   active: 1
-   #   monitored: 1
-   #   def_params: ['TDefTracking', 'point', 'point', 'ee_point = target_point', '0.04']
-   #   dyn_params: ['TDynPD', '4.0', '1']
+
 
    echo $'Pose initialized. Sleeping for 10.'
 
     sleep 10
     echo $'Moving downawards'
     # ==================== Phase 2  ========================
-    # rosservice call /yumi/hiqp_joint_velocity_controller/remove_tasks "names:
-    # - 'task2'"
+    rosservice call /yumi/hiqp_joint_velocity_controller/remove_tasks "names:
+    - 'task2'"
 
 
     rosservice call /yumi/hiqp_joint_velocity_controller/set_tasks \
@@ -111,8 +114,8 @@ rosservice call /yumi/hiqp_joint_velocity_controller/set_primitives \
       active: 1
       monitored: 1
       def_params: ['TDefTracking', 'frame', 'frame', 'ee_frame = final_frame', '0.05', '0.5']
-      dyn_params: ['TDynPD', '30.0', '30.0', '30.0', '3.0', '3.0', '3.0', '12.0', '12.0', '12.0', '4.0', '4.0', '4.0']
-      "
+      dyn_params: ['TDynPD', '30.0', '30.0', '30.0', '3.0', '3.0', '3.0', '8.0', '8.0', '8.0', '4.0', '4.0', '4.0']
+         "
 
 
 
